@@ -34,7 +34,14 @@ if ($result->num_rows > 0) {
   VALUES ('$message')";
   if ($conn->query($sql2) === TRUE) {
     while($row = $result->fetch_assoc()) {
-      echo $row["ten_ndk"]. '||'.$row["sdt"].  '||'.$row["email"]. "<br>";
+      $name = $row["ten_ndk"];
+      $sql3 = "UPDATE check_gate SET ten_ndk = '$name' WHERE qrCode = '$message' " ;
+      if($conn->query($sql3)===TRUE){
+        echo $row["ten_ndk"]. '||'.$row["sdt"].  '||'.$row["email"]. "<br>";
+      }else{
+        echo 'loi insert name to check table';
+      }
+      
       break;
     }
   } else {
@@ -42,9 +49,6 @@ if ($result->num_rows > 0) {
   }
   }
 
- 
-  
-  
 } else {
   echo "false";
 }
