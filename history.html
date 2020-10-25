@@ -85,10 +85,10 @@
     function doAjax() {
     $.ajax({
             type: 'POST',
-            url: 'increment.php',
+            url: './sum.php',
             dataType: 'json',
             success: function (data) {
-                    $('#hidden').val(data);// first set the value     
+                    console.log(data); 
             },
             complete: function (data) {
                     // Schedule the next

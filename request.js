@@ -1,5 +1,5 @@
 
-
+doAjax();
 function sendMess(message){
     console.log(message);
     $.ajax({
@@ -24,7 +24,7 @@ function callHis(){
     $.ajax({
         type:'POST',
         data:{},
-        url:'http://localhost/qrcode/qrweb/his.php',
+        url:'./his.php',
         success: function(result){
             var obj = JSON.parse(result);
             var count = Object.size(obj) ;
@@ -54,6 +54,7 @@ function callHis(){
     })
 }
 function history(){
+
     var conten = document.getElementById('content');
     conten.setAttribute('visibility','hidden');
 
